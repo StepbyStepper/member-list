@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class From extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
@@ -20,6 +20,11 @@ class From extends Component {
     });
   }
 
+  submitForm = () => {
+    this.props.handleSubmit(this.state);
+    this.setState(this.initialState);
+  }
+
   render() {
     const { name, job } = this.state;
 
@@ -37,6 +42,12 @@ class From extends Component {
               name="job" 
               value={job} 
               onChange={this.handleChange}/>
+
+          <input
+            type="button"
+            value="Submit"
+            onClick={this.submitForm}
+          />
       </form>
     );
   }
